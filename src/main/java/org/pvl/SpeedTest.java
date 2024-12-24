@@ -28,7 +28,7 @@ public class SpeedTest {
         List<String> headers = new ArrayList<>(Arrays.asList("Method", "Calls", "ArrayList time", "LinkedList time"));
 
         TableGenerator tableGenerator = new TableGenerator();
-        System.out.print(tableGenerator.generateTable(headers, speedTest.tableRows)); // TODO
+        System.out.print(tableGenerator.generateTable(headers, speedTest.tableRows));
     }
 
 
@@ -143,6 +143,48 @@ public class SpeedTest {
         long linkedTotalTime = System.currentTimeMillis() - linkedStartTime;
 
         addTimeToTable("set", arrayTotalTime, linkedTotalTime);
+    }
+
+    /// Clear method speed test
+    /// Records call time for `callsCount` calls of clear method of ArrayList and LinkedList
+    /// Adds `callsCount` elements to tested lists and measures time to clear the lists
+    /// Records results to `tableRows` as a list
+    private void testClear() {
+        for (int i = 0; i < callsCount; ++i) {
+            arrayList.add(i);
+            linkedList.add(i);
+        }
+
+        long arrayStartTime = System.currentTimeMillis();
+        arrayList.clear();
+        long arrayTotalTime = System.currentTimeMillis() - arrayStartTime;
+
+        long linkedStartTime = System.currentTimeMillis();
+        linkedList.clear();
+        long linkedTotalTime = System.currentTimeMillis() - linkedStartTime;
+
+        addTimeToTable("clear", arrayTotalTime, linkedTotalTime);
+    }
+
+    /// Sort method speed test
+    /// Records call time for `callsCount` calls of sort method of ArrayList and LinkedList
+    /// Adds `callsCount` elements to tested lists and measures time to sort the lists
+    /// Records results to `tableRows` as a list
+    private void testSize() {
+        for (int i = 0; i < callsCount; ++i) {
+            arrayList.add(callsCount - i);
+            linkedList.add(callsCount - i);
+        }
+
+        long arrayStartTime = System.currentTimeMillis();
+        arrayList.sort(null);
+        long arrayTotalTime = System.currentTimeMillis() - arrayStartTime;
+
+        long linkedStartTime = System.currentTimeMillis();
+        linkedList.sort(null);
+        long linkedTotalTime = System.currentTimeMillis() - linkedStartTime;
+
+        addTimeToTable("sort", arrayTotalTime, linkedTotalTime);
     }
     //
 
