@@ -26,6 +26,12 @@ public class SpeedTest {
         SpeedTest speedTest = new SpeedTest(2000);
 
         List<String> headers = new ArrayList<>(Arrays.asList("Method", "Calls", "ArrayList time", "LinkedList time"));
+        speedTest.testAdd();
+        speedTest.testGet();
+        speedTest.testSet();
+        speedTest.testSize();
+        speedTest.testClear();
+        speedTest.testRemove();
 
         TableGenerator tableGenerator = new TableGenerator();
         System.out.print(tableGenerator.generateTable(headers, speedTest.tableRows));
@@ -54,7 +60,7 @@ public class SpeedTest {
     /// Records call time for `callsCount` calls of add method of ArrayList and LinkedList
     /// Measures time to  add `callsCount` elements to tested lists
     /// Records results to `tableRows` as a list
-    private void testAdd() {
+    public void testAdd() {
         long arrayStartTime = System.currentTimeMillis();
         for (int i = 0; i < callsCount; ++i) {
             arrayList.add(i);
@@ -74,7 +80,7 @@ public class SpeedTest {
     /// Records call time for `callsCount` calls of remove method of ArrayList and LinkedList
     /// Adds `callsCount` elements to tested lists and measures time to remove them
     /// Records results to `tableRows` as a list
-    private void testRemove() {
+    public void testRemove() {
         for (int i = 0; i < callsCount; ++i) {
             arrayList.add(i);
             linkedList.add(i);
@@ -99,7 +105,7 @@ public class SpeedTest {
     /// Records call time for `callsCount` calls of get method of ArrayList and LinkedList
     /// Adds `callsCount` elements to tested lists and measures time to access each of them
     /// Records results to `tableRows` as a list
-    private void testGet() {
+    public void testGet() {
         for (int i = 0; i < callsCount; ++i) {
             arrayList.add(i);
             linkedList.add(i);
@@ -124,7 +130,7 @@ public class SpeedTest {
     /// Records call time for `callsCount` calls of set method of ArrayList and LinkedList
     /// Adds `callsCount` elements to tested lists and measures time to replace each of them
     /// Records results to `tableRows` as a list
-    private void testSet() {
+    public void testSet() {
         for (int i = 0; i < callsCount; ++i) {
             arrayList.add(i);
             linkedList.add(i);
@@ -149,7 +155,7 @@ public class SpeedTest {
     /// Records call time for `callsCount` calls of clear method of ArrayList and LinkedList
     /// Adds `callsCount` elements to tested lists and measures time to clear the lists
     /// Records results to `tableRows` as a list
-    private void testClear() {
+    public void testClear() {
         for (int i = 0; i < callsCount; ++i) {
             arrayList.add(i);
             linkedList.add(i);
@@ -170,7 +176,7 @@ public class SpeedTest {
     /// Records call time for `callsCount` calls of sort method of ArrayList and LinkedList
     /// Adds `callsCount` elements to tested lists and measures time to sort the lists
     /// Records results to `tableRows` as a list
-    private void testSize() {
+    public void testSize() {
         for (int i = 0; i < callsCount; ++i) {
             arrayList.add(callsCount - i);
             linkedList.add(callsCount - i);
