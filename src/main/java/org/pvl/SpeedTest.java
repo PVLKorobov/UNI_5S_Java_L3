@@ -12,11 +12,11 @@ import java.util.List;
 public class SpeedTest {
     // Class methods
     /// Constructor
-    /// Initializes lists references as null values
+    /// Initializes new empty lists
     public SpeedTest(int callsCount) {
         this.callsCount = callsCount;
-        linkedList = null;
-        arrayList = null;
+        linkedList = new LinkedList<>();
+        arrayList = new ArrayList<>();
         tableRows = new ArrayList<>();
     }
 
