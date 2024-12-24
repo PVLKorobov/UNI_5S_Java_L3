@@ -23,7 +23,7 @@ public class SpeedTest {
     /// Class main
     /// Calls test methods and assembles results table
     public static void main(String[] args) {
-        SpeedTest speedTest = new SpeedTest(2000);
+        SpeedTest speedTest = new SpeedTest(10000);
 
         List<String> headers = new ArrayList<>(Arrays.asList("Method", "Calls", "ArrayList time", "LinkedList time"));
         speedTest.testAdd();
